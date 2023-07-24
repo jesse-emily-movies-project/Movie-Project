@@ -36,6 +36,24 @@ const addMovie = async (movieObject) => {
 }
 
 
+function renderMovieCard(movieInfo) {
+    console.log(movieInfo);
+    const movieContainer = document.querySelector(".body-container")
+    movieContainer.innerHTML = "";
+    for (let movie of movieInfo) {
+        const movieCard = document.createElement('div');
+        movieCard.innerHTML = `
+        <div class= "movie-boxes">
+            <p>${movie.title}</p>
+            <p>${movie.genre}</p>
+            <p>${movie.rating}</p>
+        </div>
+        `;
+        movieContainer.appendChild(movieCard);
+    }
+}
+
+
 (async () => {
 
 
@@ -47,7 +65,11 @@ const addMovie = async (movieObject) => {
         rating: 5000
     }
 
-    await addMovie(testMovie);
+    // await addMovie(testMovie);
+
+    let allMovies = await getAllMovies();
+
+    renderMovieCard(allMovies)
 
 
 })()
