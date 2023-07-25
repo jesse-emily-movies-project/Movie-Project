@@ -17,7 +17,6 @@ const getAllMovies = async () => {
 
 const addMovie = async (movieObject) => {
     try {
-        console.log(movieObject);
         let url = `http://localhost:3000/movies`;
         const options = {
             method: 'POST',
@@ -36,7 +35,6 @@ const addMovie = async (movieObject) => {
 }
 
 function renderMovieCard(movieInfo) {
-    console.log(movieInfo);
     const movieContainer = document.querySelector(".body-container")
     movieContainer.innerHTML = "";
     for (let movie of movieInfo) {
