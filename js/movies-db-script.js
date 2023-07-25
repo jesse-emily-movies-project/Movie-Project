@@ -75,6 +75,22 @@ const removeMovie = async (id) => {
     return response.json();
 };
 
+const getTopAPIMovies = async () => {
+    try {
+        let url = 'https://api.themoviedb.org/3/movie/popular/?api_key=';
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+
+        const response = await fetch(`${url}${MOVIES_KEY}`, options);
+        return await response.json();
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 
 (async () => {
 
@@ -90,6 +106,9 @@ const removeMovie = async (id) => {
         genre: "Wizards",
         rating: 9000
     }
+
+    let apiMovies = await getTopAPIMovies()
+    console.log(apiMovies);
 
 
     // await addMovie(testMovie);
