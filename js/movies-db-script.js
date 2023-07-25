@@ -35,7 +35,6 @@ const addMovie = async (movieObject) => {
 
 }
 
-
 function renderMovieCard(movieInfo) {
     console.log(movieInfo);
     const movieContainer = document.querySelector(".body-container")
@@ -53,18 +52,30 @@ function renderMovieCard(movieInfo) {
     }
 }
 
-const updateMovie = async (user) => {
+const updateMovie = async (movie) => {
     let url = `http://localhost:3000/movies`;
     const options = {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(movie)
     };
-    const response = await fetch(`${url}/${user.id}`, options);
+    const response = await fetch(`${url}/${movie.id}`, options);
     return response.json();
 }
+
+const removeMovie = async (id) => {
+    let url = `http://localhost:3000/movies`;
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    const response = await fetch(`${url}/${id}`, options);
+    return response.json();
+};
 
 
 (async () => {
@@ -82,14 +93,16 @@ const updateMovie = async (user) => {
         rating: 9000
     }
 
+
     // await addMovie(testMovie);
-
-
-    await updateMovie(testUpdatedMovie);
-
-    let allMovies = await getAllMovies();
-
-    renderMovieCard(allMovies);
+    //
+    // await updateMovie(testUpdatedMovie);
+    //
+    // await removeMovie(1);
+    //
+    // let allMovies = await getAllMovies();
+    //
+    // renderMovieCard(allMovies);
 
 
 })()

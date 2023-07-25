@@ -2,8 +2,8 @@
   "movies": [
     {
       "id": 1,
-      "title": "The Shawshank Redemption",
-      "genre": "Drama",
+      "title": "checkit",
+      "genre": "checked",
       "rating": 5
     },
     {
@@ -11,6 +11,18 @@
       "title": "Harry armpit",
       "genre": "Wizards",
       "rating": 9000
+    },
+    {
+      "title": "Harry Potter",
+      "genre": "Crime",
+      "rating": 5000,
+      "id": 3
+    },
+    {
+      "title": "LOL",
+      "genre": "yep",
+      "rating": 2,
+      "id": 4
     }
   ]
 }
