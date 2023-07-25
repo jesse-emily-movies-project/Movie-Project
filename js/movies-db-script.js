@@ -17,7 +17,6 @@ const getAllMovies = async () => {
 
 const addMovie = async (movieObject) => {
     try {
-        console.log(movieObject);
         let url = `http://localhost:3000/movies`;
         const options = {
             method: 'POST',
@@ -35,9 +34,7 @@ const addMovie = async (movieObject) => {
 
 }
 
-
 function renderMovieCard(movieInfo) {
-    console.log(movieInfo);
     const movieContainer = document.querySelector(".body-container")
     movieContainer.innerHTML = "";
     for (let movie of movieInfo) {
@@ -53,23 +50,57 @@ function renderMovieCard(movieInfo) {
     }
 }
 
+const updateMovie = async (movie) => {
+    let url = `http://localhost:3000/movies`;
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(movie)
+    };
+    const response = await fetch(`${url}/${movie.id}`, options);
+    return response.json();
+}
+
+const removeMovie = async (id) => {
+    let url = `http://localhost:3000/movies`;
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    const response = await fetch(`${url}/${id}`, options);
+    return response.json();
+};
+
 
 (async () => {
 
-
-    // let allMovies = await getAllMovies();
 
     const testMovie = {
         title: "Harry Potter",
         genre: "Crime",
         rating: 5000
     }
+    const testUpdatedMovie = {
+        id: 2,
+        title: "Harry armpit",
+        genre: "Wizards",
+        rating: 9000
+    }
+
 
     // await addMovie(testMovie);
-
-    let allMovies = await getAllMovies();
-
-    renderMovieCard(allMovies)
+    //
+    // await updateMovie(testUpdatedMovie);
+    //
+    // await removeMovie(1);
+    //
+    // let allMovies = await getAllMovies();
+    //
+    // renderMovieCard(allMovies);
 
 
 })()
