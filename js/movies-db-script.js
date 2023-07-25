@@ -124,6 +124,31 @@ const searchMoviesAPI = async (movieName) => {
         genre: "Wizards",
         rating: 9000
     }
+    const movieContainer = document.querySelector(".body-container");
+
+    let initialMovies = await getTopAPIMovies();
+    console.log(initialMovies.results)
+
+    const movieCard = initialMovies.results.map(movie => {
+        let card = document.createElement('div');
+
+        card.innerHTML = `
+      <div class="card">
+          <img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" style="width: 150px;" alt="poster picture">
+          <div class="card__content">
+              <p class="card__title">${movie.title}</p>
+             <p class="card__description">${movie.overview}</p>
+              <button class="favorites-btn">Save</button>
+           </div>
+       </div>`;
+        return card;
+    });
+
+    // Append each card to the DOM.
+    movieCard.forEach(card => {
+        movieContainer.appendChild(card);
+    });
+
 
     // await addMovie(testMovie);
 
@@ -132,7 +157,7 @@ const searchMoviesAPI = async (movieName) => {
     // await removeMovie(1);
     //
     // let allMovies = await getAllMovies();
-    //
+    // console.log(allMovies)
     // renderMovieCard(allMovies);
 
 
