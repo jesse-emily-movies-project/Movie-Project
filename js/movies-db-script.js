@@ -126,7 +126,8 @@ const searchMoviesAPI = async (movieName) => {
           <div class="card__content">
               <p class="card__title">${movie.title}</p>
              <p class="card__description">${movie.overview}</p>
-              <button class="w-60 h-10 bg-orange-300 tracking-widest
+             <br>
+              <button class="w-40 h-10 bg-orange-300 tracking-widest
 rounded-md text-amber-600 text-md shadow-2xl hover:scale-90 ease-in duration-300
 hover:text-base hover:font-semibold hover:rounded-lg">
                     Favorite
