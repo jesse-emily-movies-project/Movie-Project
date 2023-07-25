@@ -13,7 +13,7 @@ const getAllMovies = async () => {
     } catch (error) {
         console.log(error.message);
     }
-}
+};
 
 const addMovie = async (movieObject) => {
     try {
@@ -32,7 +32,7 @@ const addMovie = async (movieObject) => {
         console.log(error.message);
     }
 
-}
+};
 
 function renderMovieCard(movieInfo) {
     const movieContainer = document.querySelector(".body-container")
@@ -61,7 +61,7 @@ const updateMovie = async (movie) => {
     };
     const response = await fetch(`${url}/${movie.id}`, options);
     return response.json();
-}
+};
 
 const removeMovie = async (id) => {
     let url = `http://localhost:3000/movies`;
@@ -75,6 +75,40 @@ const removeMovie = async (id) => {
     return response.json();
 };
 
+const getTopAPIMovies = async () => {
+    try {
+        let url = 'https://api.themoviedb.org/3/movie/popular/?api_key=';
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+
+        const response = await fetch(`${url}${MOVIES_KEY}`, options);
+        return await response.json();
+    } catch (error) {
+        console.log(error.message);
+    }
+};
+
+const searchMoviesAPI = async (movieName) => {
+    try {
+        let url = `https://api.themoviedb.org/3/search/movie?query=${movieName}&api_key=`
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+
+        const response = await fetch(`${url}${MOVIES_KEY}`, options);
+        return await response.json();
+    } catch (error) {
+        console.log(error.message);
+    }
+
+}
 
 (async () => {
 
@@ -90,7 +124,6 @@ const removeMovie = async (id) => {
         genre: "Wizards",
         rating: 9000
     }
-
 
     // await addMovie(testMovie);
     //
