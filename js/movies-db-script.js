@@ -112,18 +112,6 @@ const searchMoviesAPI = async (movieName) => {
 
 (async () => {
 
-
-    const testMovie = {
-        title: "Harry Potter",
-        genre: "Crime",
-        rating: 5000
-    }
-    const testUpdatedMovie = {
-        id: 2,
-        title: "Harry armpit",
-        genre: "Wizards",
-        rating: 9000
-    }
     const movieContainer = document.querySelector(".card-bodies");
 
     let initialMovies = await getTopAPIMovies();
@@ -152,6 +140,40 @@ hover:text-base hover:font-semibold hover:rounded-lg">
     movieCard.forEach(card => {
         movieContainer.appendChild(card);
     });
+
+    //search function
+    document.querySelector('#search-btn').addEventListener('click', async () => {
+        movieContainer.innerHTML = '';
+        const searchValue = document.querySelector('input').value;
+        let searchedMovie = await searchMoviesAPI(searchValue);
+
+        const movieCard = searchedMovie.results.map(movie => {
+            let card = document.createElement('div');
+
+            card.innerHTML = `
+      <div class="card column">
+          <img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" style=" height: auto; width: auto" alt="poster picture">
+          <div class="card__content">
+              <p class="card__title">${movie.title}</p>
+             <p class="card__description">${movie.overview}</p>
+              <button class="w-60 h-10 bg-orange-300 tracking-widest
+rounded-md text-amber-600 text-md shadow-2xl hover:scale-90 ease-in duration-300
+hover:text-base hover:font-semibold hover:rounded-lg">
+                    Favorite
+                </button>
+           </div>
+       </div>`;
+            return card;
+        });
+
+        // Append each card to the DOM.
+        movieCard.forEach(card => {
+            movieContainer.appendChild(card);
+        });
+
+
+
+    })
 
 
     // await addMovie(testMovie);
