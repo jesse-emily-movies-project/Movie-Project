@@ -126,14 +126,14 @@ const searchMoviesAPI = async (movieName) => {
     }
 
     // await addMovie(testMovie);
-    //
-    // await updateMovie(testUpdatedMovie);
-    //
-    // await removeMovie(1);
-    //
-    // let allMovies = await getAllMovies();
-    //
-    // renderMovieCard(allMovies);
+
+    await updateMovie(testUpdatedMovie);
+
+    await removeMovie(1);
+
+    let allMovies = await getAllMovies();
+
+    renderMovieCard(allMovies);
 
 
 })()
