@@ -33,7 +33,7 @@ body {
     border: none;
     padding: 1rem;
     font-size: 1rem;
-    width: 15em;
+    width: 20em;
     height: 5px;
     border-radius: 1rem;
     color: var(--secondary-color);
@@ -48,6 +48,7 @@ body {
 
 .main-header {
     font-size: 4rem;
+
 }
 
 .header-container {
@@ -58,7 +59,7 @@ body {
     position: relative;
     width: 250px;
     height: 400px;
-    background-color: #ffffff80;
+    background-color: grey;
     border-radius: 10px;
     display: flex;
     align-items: center;
