@@ -113,13 +113,21 @@ const searchMoviesAPI = async (movieName) => {
             card.innerHTML = `
       <div class="column">
               <p class="card__title">${movie.title}</p>
-             <p class="card__description">${movie.overview}</p>
+             <p class="card__description">${movie.desc}</p>
              <br>
-              <button class="w-40 h-10 bg-orange-300 tracking-widest
-rounded-md text-amber-600 text-md shadow-2xl hover:scale-90 ease-in duration-300
+             <div class=" row gap-5">
+              <button class="w-20 h-7 bg-orange-300 tracking-widest
+rounded-md text-amber-700 text-md shadow-2xl hover:scale-90 ease-in duration-300
 hover:text-base hover:font-semibold hover:rounded-lg">
-                    remove
+                    X
                 </button>
+                <button class="w-20 h-7 bg-orange-300 tracking-widest
+rounded-md text-amber-700 text-md shadow-2xl hover:scale-90 ease-in duration-300
+hover:text-base hover:font-semibold hover:rounded-lg">
+                    Edit
+                </button>
+</div>
+                <br>
            </div>
        </div>`;
 
@@ -180,7 +188,7 @@ hover:text-base hover:font-semibold hover:rounded-lg">
             let card = document.createElement('div');
 
             card.innerHTML = `
-      <div class="card column">
+      <div class="card column" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
           <img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" style=" height: auto; width: auto" alt="poster picture">
           <div class="card__content">
               <p class="card__title">${movie.title}</p>
