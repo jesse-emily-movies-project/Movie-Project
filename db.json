@@ -1,34 +1,3 @@
 {
-  "movies": [
-    {
-      "id": 447365,
-      "title": "Guardians of the Galaxy Vol. 3",
-      "desc": "Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them."
-    },
-    {
-      "id": 447277,
-      "title": "The Little Mermaid",
-      "desc": "The youngest of King Triton’s daughters, and the most defiant, Ariel longs to find out more about the world beyond the sea, and while visiting the surface, falls for the dashing Prince Eric. With mermaids forbidden to interact with humans, Ariel makes a deal with the evil sea witch, Ursula, which gives her a chance to experience life on land, but ultimately places her life – and her father’s crown – in jeopardy."
-    },
-    {
-      "id": 1076487,
-      "title": "Warhorse One",
-      "desc": "A gunned down Navy SEAL Master Chief must guide a child to safety through a gauntlet of hostile Taliban insurgents and survive the brutal Afghanistan wilderness."
-    },
-    {
-      "id": 872585,
-      "title": "Oppenheimer",
-      "desc": "The story of J. Robert Oppenheimer’s role in the development of the atomic bomb during World War II."
-    },
-    {
-      "id": 976573,
-      "title": "Elemental",
-      "desc": "In a city where fire, water, land and air residents live together, a fiery young woman and a go-with-the-flow guy will discover something elemental: how much they have in common."
-    },
-    {
-      "id": 1059638,
-      "title": "Mr. Car and the Knights Templar",
-      "desc": "A well-known art historian, treasure hunter and owner of an unusual car stumbles upon a Templar treasure, which is the key to a great power that can upset the balance of good and evil in the world. Supported by friendly scouts, Mr. Car starts a big race against time and a hostile organization, the stake of which is the heritage of knightly orders."
-    }
-  ]
+  "movies": []
 }
