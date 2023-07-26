@@ -119,3 +119,9 @@ body {
 .card-bodies {
     flex-wrap: wrap;
 }
+
+.favorite-movies {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+}
