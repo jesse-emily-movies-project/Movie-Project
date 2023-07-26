@@ -173,7 +173,7 @@ hover:text-base hover:font-semibold hover:rounded-lg">
 
         card.innerHTML = `
       <div class="card column">
-          <img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" style=" height: auto; width: auto" alt="poster picture">
+          <img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" style=" height: 500px; width: 250px" alt="poster picture">
           <div class="card__content">
               <p class="card__title">${movie.title}</p>
              <p class="card__description">${movie.overview}</p>
@@ -214,7 +214,7 @@ hover:text-base hover:font-semibold hover:rounded-lg">
 
             card.innerHTML = `
       <div class="card column" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-          <img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" style=" height: auto; width: auto" alt="poster picture">
+          <img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" style=" height: 500px; width: 250px" alt="poster picture">
           <div class="card__content">
               <p class="card__title">${movie.title}</p>
              <p class="card__description">${movie.overview}</p>

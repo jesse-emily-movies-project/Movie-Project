@@ -57,7 +57,7 @@ body {
 .card {
     position: relative;
     width: 250px;
-    height: 350px;
+    height: 400px;
     background-color: #ffffff80;
     border-radius: 10px;
     display: flex;
