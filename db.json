@@ -1,10 +1,19 @@
 {
   "movies": [
     {
-      "id": 2,
-      "title": "Harry armpit",
-      "genre": "Wizards",
-      "rating": 9000
+      "id": 346698,
+      "title": "Barbie",
+      "desc": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans."
+    },
+    {
+      "id": 298618,
+      "title": "The Flash",
+      "desc": "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?"
+    },
+    {
+      "id": 447365,
+      "title": "Guardians of the Galaxy Vol. 3",
+      "desc": "Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them."
     }
   ]
 }

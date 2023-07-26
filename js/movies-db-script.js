@@ -34,21 +34,6 @@ const addMovie = async (movieObject) => {
 
 };
 
-function renderMovieCard(movieInfo) {
-    const movieContainer = document.querySelector(".body-container")
-    movieContainer.innerHTML = "";
-    for (let movie of movieInfo) {
-        const movieCard = document.createElement('div');
-        movieCard.innerHTML = `
-        <div class= "movie-boxes">
-            <p>${movie.title}</p>
-            <p>${movie.genre}</p>
-            <p>${movie.rating}</p>
-        </div>
-        `;
-        movieContainer.appendChild(movieCard);
-    }
-}
 
 const updateMovie = async (movie) => {
     let url = `http://localhost:3000/movies`;
@@ -110,12 +95,45 @@ const searchMoviesAPI = async (movieName) => {
 
 }
 
+
 (async () => {
 
     const movieContainer = document.querySelector(".card-bodies");
 
     let initialMovies = await getTopAPIMovies();
-    console.log(initialMovies.results)
+
+    async function renderJsons() {
+        let allJsonMovies = await getAllMovies();
+        let thisContainer = document.querySelector('.savedMoviesContainer');
+        thisContainer.innerHTML = '';
+        const savedMovieCards = allJsonMovies.map(movie => {
+            let card = document.createElement('div');
+
+
+            card.innerHTML = `
+      <div class="column">
+              <p class="card__title">${movie.title}</p>
+             <p class="card__description">${movie.overview}</p>
+             <br>
+              <button class="w-40 h-10 bg-orange-300 tracking-widest
+rounded-md text-amber-600 text-md shadow-2xl hover:scale-90 ease-in duration-300
+hover:text-base hover:font-semibold hover:rounded-lg">
+                    remove
+                </button>
+           </div>
+       </div>`;
+
+            return card;
+        });
+
+        // Append each card to the DOM.
+        savedMovieCards.forEach(card => {
+            thisContainer.appendChild(card);
+        });
+    }
+
+    renderJsons()
+
 
     const movieCard = initialMovies.results.map(movie => {
         let card = document.createElement('div');
@@ -134,6 +152,15 @@ hover:text-base hover:font-semibold hover:rounded-lg">
                 </button>
            </div>
        </div>`;
+        card.querySelector('button').addEventListener('click', async () => {
+            let newMovie = {
+                id: movie.id,
+                title: movie.title,
+                desc: movie.overview,
+            }
+            await addMovie(newMovie);
+            renderJsons();
+        })
         return card;
     });
 
@@ -141,6 +168,7 @@ hover:text-base hover:font-semibold hover:rounded-lg">
     movieCard.forEach(card => {
         movieContainer.appendChild(card);
     });
+
 
     //search function
     document.querySelector('#search-btn').addEventListener('click', async () => {
@@ -165,6 +193,15 @@ hover:text-base hover:font-semibold hover:rounded-lg">
                 </button>
            </div>
        </div>`;
+            card.querySelector('button').addEventListener('click', async () => {
+                let newMovie = {
+                    id: movie.id,
+                    title: movie.title,
+                    desc: movie.overview,
+                }
+                await addMovie(newMovie);
+                renderJsons();
+            })
             return card;
         });
 
@@ -174,19 +211,7 @@ hover:text-base hover:font-semibold hover:rounded-lg">
         });
 
 
-
     })
-
-
-    // await addMovie(testMovie);
-
-    // await updateMovie(testUpdatedMovie);
-    //
-    // await removeMovie(1);
-    //
-    // let allMovies = await getAllMovies();
-    // console.log(allMovies)
-    // renderMovieCard(allMovies);
 
 
 })()
