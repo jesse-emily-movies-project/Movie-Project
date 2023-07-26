@@ -111,17 +111,17 @@ const searchMoviesAPI = async (movieName) => {
 
 
             card.innerHTML = `
-      <div class="column">
+      <div class="column thisCard">
               <p class="card__title">${movie.title}</p>
              <p class="card__description">${movie.desc}</p>
              <br>
              <div class=" row gap-5">
-              <button class="w-20 h-7 bg-orange-300 tracking-widest
+              <button id="remove-btn" class="w-20 h-7 bg-orange-300 tracking-widest
 rounded-md text-amber-700 text-md shadow-2xl hover:scale-90 ease-in duration-300
 hover:text-base hover:font-semibold hover:rounded-lg">
                     X
                 </button>
-                <button class="w-20 h-7 bg-orange-300 tracking-widest
+                <button id="edit-btn" class="w-20 h-7 bg-orange-300 tracking-widest
 rounded-md text-amber-700 text-md shadow-2xl hover:scale-90 ease-in duration-300
 hover:text-base hover:font-semibold hover:rounded-lg">
                     Edit
@@ -130,6 +130,11 @@ hover:text-base hover:font-semibold hover:rounded-lg">
                 <br>
            </div>
        </div>`;
+
+            card.querySelector('#remove-btn').addEventListener('click', async () => {
+                await removeMovie(movie.id);
+                renderJsons();
+            })
 
             return card;
         });
