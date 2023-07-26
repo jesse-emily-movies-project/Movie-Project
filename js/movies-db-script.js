@@ -136,6 +136,18 @@ hover:text-base hover:font-semibold hover:rounded-lg">
                 renderJsons();
             })
 
+            card.querySelector('#edit-btn').addEventListener('click', async () => {
+                let newDesc = prompt('What do you want the new movie description to be?');
+                let updatedMovie = {
+                    id: movie.id,
+                    title: movie.title,
+                    desc: newDesc
+                }
+                await updateMovie(updatedMovie);
+                renderJsons();
+
+            })
+
             return card;
         });
 
