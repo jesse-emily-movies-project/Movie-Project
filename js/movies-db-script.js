@@ -36,28 +36,36 @@ const addMovie = async (movieObject) => {
 
 
 const updateMovie = async (movie) => {
-    let url = `http://localhost:3000/movies`;
-    const options = {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(movie)
-    };
-    const response = await fetch(`${url}/${movie.id}`, options);
-    return response.json();
+    try {
+        let url = `http://localhost:3000/movies`;
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(movie)
+        };
+        const response = await fetch(`${url}/${movie.id}`, options);
+        return response.json();
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 const removeMovie = async (id) => {
-    let url = `http://localhost:3000/movies`;
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-    const response = await fetch(`${url}/${id}`, options);
-    return response.json();
+    try {
+        let url = `http://localhost:3000/movies`;
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const response = await fetch(`${url}/${id}`, options);
+        return response.json();
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 const getTopAPIMovies = async () => {
